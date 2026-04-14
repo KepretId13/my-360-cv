@@ -44,12 +44,16 @@
        debugBox.innerHTML = 'Geser (+) ke objek...';
        document.body.appendChild(debugBox);
 
-       // 2. Update angka otomatis pas layar digeser
-       viewer.on('viewchange', function() {
-          var pitch = viewer.getPitch().toFixed(2);
-          var yaw = viewer.getYaw().toFixed(2);
-       debugBox.innerHTML = "Pitch: " + pitch + " | Yaw: " + yaw;
-    });
+    // Update angka otomatis setiap kali kamera bergerak
+       function updateCoords() {
+        if (viewer) {
+            var pitch = viewer.getPitch().toFixed(2);
+            var yaw = viewer.getYaw().toFixed(2);
+            debugBox.innerHTML = "Pitch: " + pitch + " | Yaw: " + yaw;
+        }
+        requestAnimationFrame(updateCoords); // Ini bakal jalan terus-menerus
+     }
+    updateCoords(); // Jalankan fungsinya
     </script>
 </body>
 </html>
