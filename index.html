@@ -14,7 +14,7 @@
 <body>
     <div id="panorama"></div>
     <script>
-        pannellum.viewer('panorama', {
+        const viewer = pannellum.viewer('panorama', {
             "type": "equirectangular",
             "panorama": "panorama.jpg", // Pastiin nama filenya sama persis!
             "autoLoad": true,
@@ -28,7 +28,12 @@
                     "text": "Tes koordinat"
                 }
             ]
-        });
+         // 2. Taruh kode "radar" ini di bawahnya
+         viewer.on('mousedown', function(event) {
+         var coords = viewer.getCoords();
+         // Munculin pop-up angka di HP
+         alert("Pitch: " + coords[0].toFixed(2) + " | Yaw: " + coords[1].toFixed(2));
+       });
     </script>
 </body>
 </html>
