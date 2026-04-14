@@ -30,7 +30,7 @@
             ]
         });
          // 2. Taruh kode "radar" ini di bawahnya
-         viewer.on('mousedown', function(event) {
+         viewer.on('click', function(event) {
          var coords = viewer.getCoords();
          // Munculin pop-up angka di HP
          alert("Pitch: " + coords[0].toFixed(2) + " | Yaw: " + coords[1].toFixed(2));
