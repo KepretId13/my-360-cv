@@ -31,18 +31,20 @@
         });  
         // 1. Tambahin elemen teks buat nampilin angka di layar
         const debugBox = document.createElement('div');
-        debugBox.style.position = 'fixed';
-        debugBox.style.bottom = '20px';
-        debugBox.style.left = '50%';
-        debugBox.style.transform = 'translateX(-50%)';
-        debugBox.style.background = 'rgba(0,0,0,0.7)';
-       debugBox.style.color = '#fff';
-       debugBox.style.padding = '10px';
-       debugBox.style.borderRadius = '5px';
-       debugBox.style.zIndex = '1000';
-       debugBox.style.pointerEvents = 'none'; // Biar gak ganggu geser-geser
-       debugBox.innerHTML = 'Geser (+) ke objek...';
-       document.body.appendChild(debugBox);
+        debugBox.style.position = 'fixed'; 
+        debugBox.style.bottom = '20px'; //Kasih jarak 20 pixel dari bawah layar.
+        debugBox.style.left = '50%'; //ngukur dari arah kiri (posisi awal ke kiri dihitung dari kiri)
+        debugBox.style.transform = 'translateX(-50%)'; //translateX(-50%) narik kotaknya balik ke kiri setengah 
+                                                       //lebar dirinya sendiri. Hasilnya? Simetris sempurna.
+        debugBox.style.background = 'rgba(0,0,0,0.7)'; //Bikin background warna (0,0,0,0=hitam) dan (7=tingkat transparant)
+        debugBox.style.color = '#fff'; //warna teks
+        debugBox.style.padding = '10px'; //seberapa padat teks didalam itu
+        debugBox.style.borderRadius = '5px'; //Bikin pojokan kotaknya nggak lancip (agak melengkung). (Curve)
+        debugBox.style.zIndex = '1000'; 
+        debugBox.style.pointerEvents = 'none'; // Biar gak ganggu geser-geser
+                                               // WARNING: INI PALING PENTING
+        debugBox.innerHTML = 'Geser (+) ke objek...';
+        document.body.appendChild(debugBox);
 
     // Update angka otomatis setiap kali kamera bergerak
        function updateCoords() {
