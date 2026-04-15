@@ -57,3 +57,28 @@ setTimeout(() => {
         pnlmControls.appendChild(toggleBtn);
     }
 }, 500);
+
+let lastFrameTime = performance.now();
+let delta = 0;
+
+function updateDebug() {
+    const now = performance.now();
+    delta = now - lastFrameTime; // Ini adalah 'ms' per frame
+    lastFrameTime = now;
+
+    if (typeof viewer !== 'undefined' && viewer) {
+        const pitch = viewer.getPitch().toFixed(2);
+        const yaw = viewer.getYaw().toFixed(2);
+        
+        debugBox.innerHTML = `
+            <div><b>MINECRAFT DEBUG WEB</b></div>
+            <div>Pitch: ${pitch}</div>
+            <div>Yaw: ${yaw}</div>
+            <div>Facing: ${getYawDirection(yaw)}</div>
+            <div style="color: ${delta > 20 ? '#ff4444' : '#00ff00'}">
+                Frame Time: ${delta.toFixed(1)}ms
+            </div>
+        `;
+    }
+    requestAnimationFrame(updateDebug);
+}
