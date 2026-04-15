@@ -11,3 +11,17 @@
     font-size: 13px;
     line-height: 1.4;
 }
+
+.pnlm-f3-button {
+    width: 26px;
+    height: 26px;
+    background: #fff; /* Warna dasar tombol Pannellum */
+    border-radius: 3px;
+    margin-top: 5px; /* Kasih jarak dikit */
+    color: #000;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.pnlm-f3-button:hover {
+    background: #f4f4f4;
+}
