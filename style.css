@@ -1,0 +1,13 @@
+#debug-menu {
+    position: fixed;
+    top: 10px; /* Minecraft F3 biasanya di atas */
+    left: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #00ff00; /* Hijau matrix/debug biar keren */
+    font-family: 'Courier New', monospace;
+    padding: 8px;
+    z-index: 1000;
+    pointer-events: none;
+    font-size: 13px;
+    line-height: 1.4;
+}
