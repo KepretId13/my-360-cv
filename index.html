@@ -87,13 +87,21 @@
         }
     ]
 },
-            "bedroom": {
-                "title": "Bedroom",
-                "panorama": `assets/panorama/bedroom/${state}.webp`,
-                "hotSpots": [
-                    { "pitch": -5, "yaw": -30, "type": "scene", "text": "Ke Ruang Trophy", "sceneId": "tropiroom" }
-                ]
-            },
+            "pcroom": {
+            "title": "Bedroom",
+            "panorama": `assets/panorama/bedroom/${state}.webp`, 
+            "hotSpots": [
+        {
+            "pitch": -4.79, // Koordinat ke arah Bedroom
+            "yaw": 19.24,
+            "type": "scene",
+            "text": "Masuk ke PCroom",
+            "sceneId": "pcroom",
+            "targetYaw": 19.23,   // Mengarahkan pandangan saat sampai di Bedroom
+            "targetPitch": -4.79
+        }
+    ]        
+},
             "tropiroom": {
                 "title": "Trophy Room",
                 "panorama": `assets/panorama/tropiroom/${state}.webp`,
