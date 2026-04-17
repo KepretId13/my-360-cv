@@ -26,12 +26,13 @@
     const state = getTimeState(); // Hasilnya: 'w1', 'w2', dst.
 
     pannellum.viewer('panorama', {
-        "default": {
-            "firstScene": "pcroom",
-            "author": "Naufal",
-            "sceneFadeDuration": 1000,
-            "autoLoad": true
+    "default": {
+    "firstScene": "pcroom",
+    "hotSpotDebug": true, // Taro di sini biar semua scene dapet
+    "sceneFadeDuration": 1000,
+    "autoLoad": true
         },
+    },
 
         "scenes": {
             "pcroom": {
