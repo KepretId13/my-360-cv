@@ -63,54 +63,76 @@
         },
 
         "scenes": {
-            "pcroom": {
-            "title": "PC Room",
-            "panorama": `assets/panorama/pcroom/${state}.webp`, 
-            "hotSpots": [
-        {
-            "pitch": -5.05, // Koordinat ke arah Bedroom
-            "yaw": 30.95,
-            "type": "scene",
-            "text": "Masuk ke Bedroom",
-            "sceneId": "bedroom",
-            "targetYaw": 0.88,   // Mengarahkan pandangan saat sampai di Bedroom
-            "targetPitch": -4.48
-        },
-        {
-            "pitch": -6.99, // Koordinat ke arah Enchanting Room
-            "yaw": -30.14,
-            "type": "scene",
-            "text": "Turun ke Enchanting Room",
-            "sceneId": "enchantroom",
-            "targetYaw": 0.88,
-            "targetPitch": -4.48
-        }
-    ]
-},
-            "pcroom": {
-            "title": "Bedroom",
-            "panorama": `assets/panorama/pcroom/${state}.webp`, 
-            "hotSpots": [
-                    { "pitch": -8.14, "yaw": 18.83, "type": "scene", "text": "Ke Ruang PC area", "sceneId": "bedroom" }
-                ]
+    // 1. AREA UTAMA
+    "pcroom": {
+        "title": "PC Room",
+        "panorama": `assets/panorama/pcroom/${state}.webp`, 
+        "hotSpots": [
+            {
+                "pitch": -5.05,
+                "yaw": 30.95,
+                "type": "scene",
+                "text": "Masuk ke Bedroom",
+                "sceneId": "bedroom", // Menuju ke ID 'bedroom' di bawah
+                "targetYaw": 0.88,
+                "targetPitch": -4.48
             },
-                
-            "tropiroom": {
-                "title": "Trophy Room",
-                "panorama": `assets/panorama/tropiroom/${state}.webp`,
-                "hotSpots": [
-                    { "pitch": -5, "yaw": 60, "type": "scene", "text": "Ke Ruang Enchant", "sceneId": "enchantroom" }
-                ]
-            },
-            "enchantroom": {
-                "title": "Enchanting Room",
-                "panorama": `assets/panorama/enchantroom/${state}.webp`,
-                "hotSpots": [
-                    { "pitch": -5, "yaw": 0, "type": "scene", "text": "Balik ke PC Room", "sceneId": "pcroom" }
-                ]
+            {
+                "pitch": -6.99,
+                "yaw": -30.14,
+                "type": "scene",
+                "text": "Turun ke Enchanting Room",
+                "sceneId": "enchantroom", // Menuju ke ID 'enchantroom'
+                "targetYaw": 0.88,
+                "targetPitch": -4.48
             }
-        }
-    });
+        ]
+    },
+
+    // 2. KAMAR TIDUR (Tadi lu salah tulis jadi 'pcroom')
+    "bedroom": {
+        "title": "Bedroom",
+        "panorama": `assets/panorama/bedroom/${state}.webp`, // Pake folder bedroom
+        "hotSpots": [
+            { 
+                "pitch": -8.14, 
+                "yaw": 18.83, 
+                "type": "scene", 
+                "text": "Balik ke PC Room", 
+                "sceneId": "pcroom" // Balik ke ID 'pcroom'
+            }
+        ]
+    },
+
+    "enchantroom": {
+        "title": "Enchanting Room",
+        "panorama": `assets/panorama/enchantroom/${state}.webp`,
+        "hotSpots": [
+            { 
+                "pitch": -5, 
+                "yaw": 0, 
+                "type": "scene", 
+                "text": "Naik ke PC Room", 
+                "sceneId": "pcroom" 
+            }
+        ]
+    },
+
+    "tropiroom": {
+        "title": "Trophy Room",
+        "panorama": `assets/panorama/tropiroom/${state}.webp`,
+        "hotSpots": [
+            { 
+                "pitch": -5, 
+                "yaw": 60, 
+                "type": "scene", 
+                "text": "Ke Ruang Enchant", 
+                "sceneId": "enchantroom" 
+            }
+        ]
+    }
+}
+        
     </script>
     <script src="debug.js"></script>
 </body>
