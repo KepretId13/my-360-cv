@@ -17,6 +17,6 @@
     color: #000; /* Warna teks tombol F3 di kontrol */
 }
 
-.pnlm-f3-button {
-    color: #000; /* Warna teks tombol F3 di kontrol */
+.pnlm-f3-button:hover {
+    background: #f4f4f4;
 }
