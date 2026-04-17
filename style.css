@@ -1,27 +1,18 @@
 #debug-menu {
-    position: fixed;
-    top: 10px; /* Minecraft F3 biasanya di atas */
+    position: absolute;
+    top: 10px;
     left: 10px;
-    background: rgba(0, 0, 0, 0.5);
-    color: #00ff00; /* Hijau matrix/debug biar keren */
-    font-family: 'Courier New', monospace;
-    padding: 8px;
-    z-index: 1000;
-    pointer-events: none;
-    font-size: 13px;
-    line-height: 1.4;
+    z-index: 1000; /* Biar melayang di depan panorama */
+    background: rgba(0, 0, 0, 0.5); /* Semi transparan ala Minecraft */
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace; /* Vibe retro */
+    padding: 10px;
+    font-size: 14px;
+    pointer-events: none; /* Biar mouse tetep bisa gerakin panorama walau kena menu */
+    line-height: 1.5;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .pnlm-f3-button {
-    width: 26px;
-    height: 26px;
-    background: #fff; /* Warna dasar tombol Pannellum */
-    border-radius: 3px;
-    margin-top: 5px; /* Kasih jarak dikit */
-    color: #000;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
-}
-
-.pnlm-f3-button:hover {
-    background: #f4f4f4;
+    color: #000; /* Warna teks tombol F3 di kontrol */
 }
