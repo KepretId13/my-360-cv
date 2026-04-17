@@ -1,8 +1,9 @@
 // 1. Buat elemen debug ala F3
 const debugBox = document.createElement('div');
 debugBox.id = 'debug-menu';
+debugBox.style.zIndex = "9999"; // Paksa paling depan
 document.body.appendChild(debugBox);
-debugBox.style.display = 'none'; 
+debugBox.style.display = 'none';
 
 // 2. Variabel itung Frame Time
 let lastFrameTime = performance.now();
