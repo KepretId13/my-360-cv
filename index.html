@@ -14,23 +14,37 @@
 </head>
 <body>
     <div id="panorama"></div>
-    <script>
-        const viewer = pannellum.viewer('panorama', {
-            "type": "equirectangular",
-            "panorama": "panorama.jpg", // Pastiin nama filenya sama persis!
-            "autoLoad": true,
-            "debug": true, // tambahin sementara
-            "hotSpotDebug": true, // nampilin panel spot coordinate 
-            "hotSpots": [
-                {
-                    "pitch": -10,
-                    "yaw": 30,
-                    "type": "info",
-                    "text": "Tes koordinat"
-                }
-            ]
-        });  
-    </script>
+         <script>
+    // 1. Fungsi penentu waktu
+    const getTimeState = () => {
+        const hour = new Date().getHours();
+        if (hour >= 5 && hour < 11) return 'w1';  // Pagi
+        if (hour >= 11 && hour < 16) return 'w2'; // Siang
+        if (hour >= 16 && hour < 19) return 'w3'; // Sore
+        return 'w4';                             // Malam
+    };
+
+    // 2. Tentukan file berdasarkan waktu (Asumsi default awal di PC Room)
+    const state = getTimeState();
+    const currentPanorama = `w${state}pcroom.jpg`; // Contoh: w3pcroom.jpg
+
+    // 3. Inisialisasi Viewer
+    const viewer = pannellum.viewer('panorama', {
+        "type": "equirectangular",
+        "panorama": `assets/${currentPanorama}`, // Sesuaikan path folder lu
+        "autoLoad": true,
+        "autoRotate": -2, // Tambahin dikit biar cinematic pas dibuka
+        "hotSpotDebug": true, 
+        "hotSpots": [
+            {
+                "pitch": -10,
+                "yaw": 30,
+                "type": "info",
+                "text": "Tes koordinat"
+            }
+        ]
+  });  
+         </script>
     <script src="debug.js"></script>
 </body>
 </html>
