@@ -53,87 +53,85 @@
 
     const state = getTimeState();
 
-    // FIX: Pake window.viewer biar terbaca global oleh debug.js
     window.viewer = pannellum.viewer('panorama', {
+        // Objek utama dimulai di sini
         "default": {
             "firstScene": "pcroom",
             "hotSpotDebug": true, 
             "sceneFadeDuration": 1000,
             "autoLoad": true
-        }
-    },
+        },
 
         "scenes": {
-        // 1. AREA UTAMA
-        "pcroom": {
-        "title": "PC Room",
-        "panorama": `assets/panorama/pcroom/${state}.webp`, 
-        "hotSpots": [
-            {
-                "pitch": -5.05,
-                "yaw": 30.95,
-                "type": "scene",
-                "text": "Masuk ke Bedroom",
-                "sceneId": "bedroom", // Menuju ke ID 'bedroom' di bawah
-                "targetYaw": 0.88,
-                "targetPitch": -4.48
+            "pcroom": {
+                "title": "PC Room",
+                "panorama": `assets/panorama/pcroom/${state}.webp`, 
+                "hotSpots": [
+                    {
+                        "pitch": -5.05,
+                        "yaw": 30.95,
+                        "type": "scene",
+                        "text": "Masuk ke Bedroom",
+                        "sceneId": "bedroom",
+                        "targetYaw": 0.88,
+                        "targetPitch": -4.48
+                    },
+                    {
+                        "pitch": -6.99,
+                        "yaw": -30.14,
+                        "type": "scene",
+                        "text": "Turun ke Enchanting Room",
+                        "sceneId": "enchantroom",
+                        "targetYaw": 0.88,
+                        "targetPitch": -4.48
+                    }
+                ]
             },
-            {
-                "pitch": -6.99,
-                "yaw": -30.14,
-                "type": "scene",
-                "text": "Turun ke Enchanting Room",
-                "sceneId": "enchantroom", // Menuju ke ID 'enchantroom'
-                "targetYaw": 0.88,
-                "targetPitch": -4.48
-            }
-        ]
-    },
 
-    // 2. KAMAR TIDUR (Tadi lu salah tulis jadi 'pcroom')
-    "bedroom": {
-        "title": "Bedroom",
-        "panorama": `assets/panorama/bedroom/${state}.webp`, // Pake folder bedroom
-        "hotSpots": [
-            { 
-                "pitch": -8.14, 
-                "yaw": 18.83, 
-                "type": "scene", 
-                "text": "Balik ke PC Room", 
-                "sceneId": "pcroom" // Balik ke ID 'pcroom'
-            }
-        ]
-    },
+            "bedroom": {
+                "title": "Bedroom",
+                "panorama": `assets/panorama/bedroom/${state}.webp`,
+                "hotSpots": [
+                    { 
+                        "pitch": -8.14, 
+                        "yaw": 18.83, 
+                        "type": "scene", 
+                        "text": "Balik ke PC Room", 
+                        "sceneId": "pcroom" 
+                    }
+                ]
+            },
 
-    "enchantroom": {
-        "title": "Enchanting Room",
-        "panorama": `assets/panorama/enchantroom/${state}.webp`,
-        "hotSpots": [
-            { 
-                "pitch": -5, 
-                "yaw": 0, 
-                "type": "scene", 
-                "text": "Naik ke PC Room", 
-                "sceneId": "pcroom" 
-            }
-        ]
-    },
+            "enchantroom": {
+                "title": "Enchanting Room",
+                "panorama": `assets/panorama/enchantroom/${state}.webp`,
+                "hotSpots": [
+                    { 
+                        "pitch": -5, 
+                        "yaw": 0, 
+                        "type": "scene", 
+                        "text": "Naik ke PC Room", 
+                        "sceneId": "pcroom" 
+                    }
+                ]
+            },
 
-    "tropiroom": {
-        "title": "Trophy Room",
-        "panorama": `assets/panorama/tropiroom/${state}.webp`,
-        "hotSpots": [
-            { 
-                "pitch": -5, 
-                "yaw": 60, 
-                "type": "scene", 
-                "text": "Ke Ruang Enchant", 
-                "sceneId": "enchantroom" 
+            "tropiroom": {
+                "title": "Trophy Room",
+                "panorama": `assets/panorama/tropiroom/${state}.webp`,
+                "hotSpots": [
+                    { 
+                        "pitch": -5, 
+                        "yaw": 60, 
+                        "type": "scene", 
+                        "text": "Ke Ruang Enchant", 
+                        "sceneId": "enchantroom" 
+                    }
+                ]
             }
-        ]
-    }
-};      
-    </script>
+        } // Penutup scenes
+    }); // Penutup viewer yang benar
+</script>
     <script src="debug.js"></script>
 </body>
 </html>
