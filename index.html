@@ -64,12 +64,29 @@
 
         "scenes": {
             "pcroom": {
-                "title": "PC Room",
-                "panorama": `assets/panorama/pcroom/${state}.webp`, 
-                "hotSpots": [
-                    { "pitch": -5, "yaw": 120, "type": "scene", "text": "Ke Kamar Tidur", "sceneId": "bedroom" }
-                ]
-            },
+            "title": "PC Room",
+            "panorama": `assets/panorama/pcroom/${state}.webp`, 
+            "hotSpots": [
+        {
+            "pitch": -5.05, // Koordinat ke arah Bedroom
+            "yaw": 30.95,
+            "type": "scene",
+            "text": "Masuk ke Bedroom",
+            "sceneId": "bedroom",
+            "targetYaw": 0.88,   // Mengarahkan pandangan saat sampai di Bedroom
+            "targetPitch": -4.48
+        },
+        {
+            "pitch": -6.99, // Koordinat ke arah Enchanting Room
+            "yaw": -30.14,
+            "type": "scene",
+            "text": "Turun ke Enchanting Room",
+            "sceneId": "enchantroom",
+            "targetYaw": 0.88,
+            "targetPitch": -4.48
+        }
+    ]
+},
             "bedroom": {
                 "title": "Bedroom",
                 "panorama": `assets/panorama/bedroom/${state}.webp`,
