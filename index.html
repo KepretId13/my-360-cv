@@ -14,37 +14,57 @@
 </head>
 <body>
     <div id="panorama"></div>
-         <script>
-    // 1. Fungsi penentu waktu
+<script>
     const getTimeState = () => {
         const hour = new Date().getHours();
-        if (hour >= 5 && hour < 11) return 'w1';  // Pagi
-        if (hour >= 11 && hour < 16) return 'w2'; // Siang
-        if (hour >= 16 && hour < 19) return 'w3'; // Sore
-        return 'w4';                             // Malam
+        if (hour >= 5 && hour < 11) return 'w1';
+        if (hour >= 11 && hour < 16) return 'w2';
+        if (hour >= 16 && hour < 19) return 'w3';
+        return 'w4';
     };
 
-    // 2. Tentukan file berdasarkan waktu (Asumsi default awal di PC Room)
-    const state = getTimeState();
-    const currentPanorama = `w${state}pcroom.jpg`; // Contoh: w3pcroom.jpg
+    const state = getTimeState(); // Hasilnya: 'w1', 'w2', dst.
 
-    // 3. Inisialisasi Viewer
-    const viewer = pannellum.viewer('panorama', {
-        "type": "equirectangular",
-        "panorama": `assets/${currentPanorama}`, // Sesuaikan path folder lu
-        "autoLoad": true,
-        "autoRotate": -2, // Tambahin dikit biar cinematic pas dibuka
-        "hotSpotDebug": true, 
-        "hotSpots": [
-            {
-                "pitch": -10,
-                "yaw": 30,
-                "type": "info",
-                "text": "Tes koordinat"
+    pannellum.viewer('panorama', {
+        "default": {
+            "firstScene": "pcroom",
+            "author": "Naufal",
+            "sceneFadeDuration": 1000,
+            "autoLoad": true
+        },
+
+        "scenes": {
+            "pcroom": {
+                "title": "PC Room",
+                "panorama": `assets/panorama/pcroom/${state}.webp`, 
+                "hotSpots": [
+                    { "pitch": -5, "yaw": 120, "type": "scene", "text": "Ke Kamar Tidur", "sceneId": "bedroom" }
+                ]
+            },
+            "bedroom": {
+                "title": "Bedroom",
+                "panorama": `assets/panorama/bedroom/${state}.webp`,
+                "hotSpots": [
+                    { "pitch": -5, "yaw": -30, "type": "scene", "text": "Ke Ruang Trophy", "sceneId": "tropiroom" }
+                ]
+            },
+            "tropiroom": {
+                "title": "Trophy Room",
+                "panorama": `assets/panorama/tropiroom/${state}.webp`,
+                "hotSpots": [
+                    { "pitch": -5, "yaw": 60, "type": "scene", "text": "Ke Ruang Enchant", "sceneId": "enchantroom" }
+                ]
+            },
+            "enchantroom": {
+                "title": "Enchanting Room",
+                "panorama": `assets/panorama/enchantroom/${state}.webp`,
+                "hotSpots": [
+                    { "pitch": -5, "yaw": 0, "type": "scene", "text": "Balik ke PC Room", "sceneId": "pcroom" }
+                ]
             }
-        ]
-  });  
-         </script>
+        }
+    });
+</script>
     <script src="debug.js"></script>
 </body>
 </html>
