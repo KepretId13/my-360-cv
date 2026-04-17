@@ -103,25 +103,29 @@
             },
 
             "enchantroom": {
-                "title": "Enchanting Room",
-                "panorama": `assets/panorama/enchantroom/${state}.webp`,
-                "hotSpots": [
-                    { 
-                        "pitch": -18.88, 
-                        "yaw": 177.65, 
-                        "type": "scene", 
-                        "text": "Naik ke PC Room", 
-                        "sceneId": "pcroom" 
-                    },
-                    {
-                        "pitch": -17.36,
-                        "yaw": 136.86,
-                        "type": "scene"
-                        "text": "Turun ke Ruang Tropi",
-                        "sceneid": "tropiroom"
-                    }
-                ]
-            },
+    "title": "Enchanting Room",
+    "panorama": `assets/panorama/enchantroom/${state}.webp`,
+    "hotSpots": [
+        {
+            "pitch": 19.88, // Arah tangga naik
+            "yaw": 175.36,
+            "type": "scene",
+            "text": "Naik ke PC Room (Lt. 2)",
+            "sceneId": "pcroom",
+            "targetYaw": -30.14, // Biar pas nyampe PC Room langsung ngadep area kerja
+            "targetPitch": -6.99
+        },
+        {
+            "pitch": -12.39, // Arah lorong/pintu keluar
+            "yaw": 130.53,
+            "type": "scene",
+            "text": "Ke Trophy Room (Lt. 1)",
+            "sceneId": "tropiroom",
+            "targetYaw": 60,    // Sesuaikan arah pandang saat sampai di Trophy Room
+            "targetPitch": -5
+        }
+    ]
+},
 
             "tropiroom": {
                 "title": "Trophy Room",
