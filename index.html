@@ -84,7 +84,23 @@
                         "sceneId": "enchantroom",
                         "targetYaw": 0.88,
                         "targetPitch": -4.48
-                    }
+                    },
+                    "hotSpots": [
+                    {
+                        "pitch": -37.49, // Pake koordinat yang lu dapet semalam
+                        "yaw": 173.36,
+                        "type": "custom", // Pake custom biar gak muncul kotak putih standar
+                        "clickHandlerFunc": function() {
+                            showActionBar([
+                            "Ini PC-ku...",
+                            "Tempat di mana aku editing atau ngoding...",
+                            "Banyak skill baru yang aku pelajari di sini.",
+                            "Termasuk web yang lagi lu liat sekarang!"
+            ]);
+        }
+    }
+]
+                    
                 ]
             },
 
@@ -142,6 +158,38 @@
             }
         } // Penutup scenes
     }); // Penutup viewer yang benar
+
+// 1. Kunci awal: status lagi nggak ada dialog
+let isDialogueRunning = false; 
+
+function showActionBar(texts) {
+    // 2. SISTEM IGNORE: Kalau lagi jalan, klik berikutnya dicuekin
+    if (isDialogueRunning) {
+        console.log("Sabar, dialog lagi jalan..."); 
+        return; 
+    }
+
+    // 3. KUNCI: Tandai kalau dialog mulai jalan
+    isDialogueRunning = true; 
+    const bar = document.getElementById('actionbar');
+    bar.style.display = 'block';
+    let index = 0;
+
+    function nextText() {
+        if (index < texts.length) {
+            bar.innerText = texts[index];
+            index++;
+            // Durasi teks muncul (2.5 detik)
+            setTimeout(nextText, 2500); 
+        } else {
+            // 4. RESET: Dialog beres, bar dihilangkan, kunci dibuka
+            bar.style.display = 'none';
+            isDialogueRunning = false; 
+        }
+    }
+    nextText();
+}
+        
 </script>
     <script src="debug.js"></script>
     <div id="actionbar" style="
